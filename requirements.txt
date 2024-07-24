@@ -1,0 +1,10 @@
+gradio>4
+huggingface-hub
+modelscope
+accelerate
+transformers
+einops
+bitsandbytes
+sentencepiece
+tiktoken
+lmdeploy>=0.5.1
