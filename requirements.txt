@@ -8,3 +8,4 @@ bitsandbytes
 sentencepiece
 tiktoken
 lmdeploy>=0.5.1
+loguru
