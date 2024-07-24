@@ -17,9 +17,7 @@ snapshot_download(
     local_dir = MODEL_PATH,
 )
 
-SYSTEM_PROMPT = """You are a helpful, respectful and honest assistant.\n
-你是一个乐于助人、尊重他人、诚实的助手。\n
-你很擅长使用多语言回答他人的问题，比如 English 和中文。
+SYSTEM_PROMPT = """You are a helpful, respectful and honest assistant.
 """
 
 LMDEPLOY_CONFIG = LmdeployConfig(
@@ -29,7 +27,7 @@ LMDEPLOY_CONFIG = LmdeployConfig(
     model_format = 'hf',
     tp = 1,                         # Tensor Parallelism.
     max_batch_size = 128,
-    cache_max_entry_count = 0.8,    # 调整 KV Cache 的占用比例为0.8
+    cache_max_entry_count = 0.5,    # 调整 KV Cache 的占用比例
     quant_policy = 0,               # KV Cache 量化, 0 代表禁用, 4 代表 4bit 量化, 8 代表 8bit 量化
     system_prompt = SYSTEM_PROMPT,
     deploy_method = 'local',
@@ -157,8 +155,8 @@ def main():
 
                 gr.Examples(
                     examples=[
-                        ["你是谁"],
-                        ["你可以帮我做什么"],
+                        ["Who are you?"],
+                        ["What you can do?"],
                     ],
                     inputs=[query],
                     label="示例问题 / Example questions"
