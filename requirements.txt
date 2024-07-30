@@ -7,5 +7,5 @@ einops
 bitsandbytes
 sentencepiece
 tiktoken
-lmdeploy>=0.5.1
+lmdeploy>=0.5.2
 loguru
